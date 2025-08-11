@@ -1,4 +1,4 @@
-# fact-cite-mcp
+
 # ONE SEVEN AI - Web Content Synthesizer
 
 ## Overview
