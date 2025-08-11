@@ -1,1 +1,247 @@
-
+echo "<!DOCTYPE html>" > index.html
+echo "<html lang=\"en\">" >> index.html
+echo "<head>" >> index.html
+echo "    <meta charset=\"UTF-8\">" >> index.html
+echo "    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">" >> index.html
+echo "    <title>ONE SEVEN AI Interface</title>" >> index.html
+echo "    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js\"></script>" >> index.html
+echo "    <link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">" >> index.html
+echo "    <link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>" >> index.html
+echo "    <link href=\"https://fonts.googleapis.com/css2?family=Audiowide&family=Roboto+Mono:wght@300&display=swap\" rel=\"stylesheet\">" >> index.html
+echo "    " >> index.html
+echo "    <style>" >> index.html
+echo "        :root {" >> index.html
+echo "            --accent-color: #00ddff;" >> index.html
+echo "            --background-color: #010409;" >> index.html
+echo "            --text-color: #e6edf3;" >> index.html
+echo "            --container-bg: rgba(16, 22, 32, 0.75);" >> index.html
+echo "        }" >> index.html
+echo "" >> index.html
+echo "        body {" >> index.html
+echo "            font-family: 'Roboto Mono', monospace;" >> index.html
+echo "            background-color: var(--background-color);" >> index.html
+echo "            color: var(--text-color);" >> index.html
+echo "            margin: 0;" >> index.html
+echo "            padding: 20px;" >> index.html
+echo "            overflow: hidden;" >> index.html
+echo "        }" >> index.html
+echo "        " >> index.html
+echo "        #canvas-bg {" >> index.html
+echo "            position: fixed;" >> index.html
+echo "            top: 0;" >> index.html
+echo "            left: 0;" >> index.html
+echo "            width: 100%;" >> index.html
+echo "            height: 100%;" >> index.html
+echo "            z-index: -1;" >> index.html
+echo "        }" >> index.html
+echo "" >> index.html
+echo "        main {" >> index.html
+echo "            position: relative;" >> index.html
+echo "            z-index: 1;" >> index.html
+echo "            width: 100%;" >> index.html
+echo "            max-width: 800px;" >> index.html
+echo "            margin: 5vh auto;" >> index.html
+echo "            background: var(--container-bg);" >> index.html
+echo "            border: 1px solid var(--accent-color);" >> index.html
+echo "            border-radius: 8px;" >> index.html
+echo "            padding: 2rem;" >> index.html
+echo "            box-shadow: 0 0 30px rgba(0, 221, 255, 0.3);" >> index.html
+echo "            backdrop-filter: blur(12px);" >> index.html
+echo "        }" >> index.html
+echo "" >> index.html
+echo "        h1.title {" >> index.html
+echo "            font-family: 'Audiowide', cursive;" >> index.html
+echo "            font-size: 2.8rem;" >> index.html
+echo "            text-align: center;" >> index.html
+echo "            text-transform: uppercase;" >> index.html
+echo "            color: var(--accent-color);" >> index.html
+echo "            margin-bottom: 2rem;" >> index.html
+echo "            animation: pulse-glow 2s infinite alternate;" >> index.html
+echo "        }" >> index.html
+echo "" >> index.html
+echo "        @keyframes pulse-glow {" >> index.html
+echo "            from {" >> index.html
+echo "                text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px var(--accent-color);" >> index.html
+echo "            }" >> index.html
+echo "            to {" >> index.html
+echo "                text-shadow: 0 0 20px #fff, 0 0 30px var(--accent-color), 0 0 40px var(--accent-color);" >> index.html
+echo "            }" >> index.html
+echo "        }" >> index.html
+echo "" >> index.html
+echo "        input[type=\"text\"] {" >> index.html
+echo "            font-family: inherit;" >> index.html
+echo "            width: 100%;" >> index.html
+echo "            padding: 14px;" >> index.html
+echo "            background-color: rgba(0,0,0,0.2);" >> index.html
+echo "            border: 1px solid var(--accent-color);" >> index.html
+echo "            color: var(--text-color);" >> index.html
+echo "            margin-bottom: 1rem;" >> index.html
+echo "            font-size: 1rem;" >> index.html
+echo "            border-radius: 4px;" >> index.html
+echo "        }" >> index.html
+echo "        input:focus { outline: 2px solid var(--accent-color); }" >> index.html
+echo "" >> index.html
+echo "        .button-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }" >> index.html
+echo "" >> index.html
+echo "        button {" >> index.html
+echo "            font-family: inherit;" >> index.html
+echo "            padding: 14px;" >> index.html
+echo "            border-radius: 4px;" >> index.html
+echo "            border: 1px solid var(--accent-color);" >> index.html
+echo "            background: var(--accent-color);" >> index.html
+echo "            color: var(--background-color);" >> index.html
+echo "            cursor: pointer;" >> index.html
+echo "            transition: all 0.2s ease-in-out;" >> index.html
+echo "            text-transform: uppercase;" >> index.html
+echo "            font-weight: bold;" >> index.html
+echo "        }" >> index.html
+echo "        button:hover {" >> index.html
+echo "            box-shadow: 0 0 15px var(--accent-color);" >> index.html
+echo "            transform: scale(1.05);" >> index.html
+echo "        }" >> index.html
+echo "        button:disabled { opacity: 0.5; cursor: wait; pointer-events: none; }" >> index.html
+echo "" >> index.html
+echo "        #results {" >> index.html
+echo "            margin-top: 2rem;" >> index.html
+echo "            padding-top: 1.5rem;" >> index.html
+echo "            border-top: 1px dashed var(--accent-color);" >> index.html
+echo "            min-height: 150px;" >> index.html
+echo "            max-height: 35vh;" >> index.html
+echo "            overflow-y: auto;" >> index.html
+echo "            padding-right: 15px;" >> index.html
+echo "        }" >> index.html
+echo "        " >> index.html
+echo "        #results ul, #results p {" >> index.html
+echo "            overflow-wrap: break-word;" >> index.html
+echo "            word-wrap: break-word;" >> index.html
+echo "        }" >> index.html
+echo "" >> index.html
+echo "        #results::-webkit-scrollbar { width: 8px; }" >> index.html
+echo "        #results::-webkit-scrollbar-track { background: transparent; }" >> index.html
+echo "        #results::-webkit-scrollbar-thumb {" >> index.html
+echo "            background-color: var(--accent-color);" >> index.html
+echo "            border-radius: 20px;" >> index.html
+echo "            border: 3px solid transparent;" >> index.html
+echo "        }" >> index.html
+echo "" >> index.html
+echo "        .blinking-cursor {" >> index.html
+echo "            animation: blink 1s step-end infinite;" >> index.html
+echo "            display: inline-block;" >> index.html
+echo "            width: 10px;" >> index.html
+echo "            height: 1.2rem;" >> index.html
+echo "            background: var(--accent-color);" >> index.html
+echo "            margin-left: 4px;" >> index.html
+echo "            box-shadow: 0 0 5px var(--accent-color);" >> index.html
+echo "        }" >> index.html
+echo "        @keyframes blink { 50% { opacity: 0; } }" >> index.html
+echo "    </style>" >> index.html
+echo "</head>" >> index.html
+echo "<body>" >> index.html
+echo "    <canvas id=\"canvas-bg\"></canvas>" >> index.html
+echo "    <main>" >> index.html
+echo "        <h1 class=\"title\">ONE SEVEN AI</h1>" >> index.html
+echo "        " >> index.html
+echo "        <form onsubmit=\"event.preventDefault();\">" >> index.html
+echo "            <input type=\"text\" id=\"urlInput\" placeholder=\"> Input Data Stream URI...\" required>" >> index.html
+echo "            <div class=\"button-grid\">" >> index.html
+echo "                <button onclick=\"runApi('summarize')\">Synthesize</button>" >> index.html
+echo "                <button onclick=\"runApi('keywords')\">Extract Nodes</button>" >> index.html
+echo "            </div>" >> index.html
+echo "        </form>" >> index.html
+echo "        <div id=\"results\"></div>" >> index.html
+echo "    </main>" >> index.html
+echo "" >> index.html
+echo "    <script>" >> index.html
+echo "        const scene = new THREE.Scene();" >> index.html
+echo "        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);" >> index.html
+echo "        const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('canvas-bg'), alpha: true });" >> index.html
+echo "        renderer.setSize(window.innerWidth, window.innerHeight);" >> index.html
+echo "        const particles = new THREE.BufferGeometry();" >> index.html
+echo "        const particleCount = 5000;" >> index.html
+echo "        const posArray = new Float32Array(particleCount * 3);" >> index.html
+echo "        for(let i = 0; i < particleCount * 3; i++) {" >> index.html
+echo "            posArray[i] = (Math.random() - 0.5) * (Math.random() * 5);" >> index.html
+echo "        }" >> index.html
+echo "        particles.setAttribute('position', new THREE.BufferAttribute(posArray, 3));" >> index.html
+echo "        const particleMaterial = new THREE.PointsMaterial({ size: 0.005, color: 0x00ddff });" >> index.html
+echo "        const particleMesh = new THREE.Points(particles, particleMaterial);" >> index.html
+echo "        scene.add(particleMesh);" >> index.html
+echo "        camera.position.z = 1.5;" >> index.html
+echo "        let mouseX = 0, mouseY = 0;" >> index.html
+echo "        document.addEventListener('mousemove', (e) => {" >> index.html
+echo "            mouseX = e.clientX;" >> index.html
+echo "            mouseY = e.clientY;" >> index.html
+echo "        });" >> index.html
+echo "        const clock = new THREE.Clock();" >> index.html
+echo "        function animate() {" >> index.html
+echo "            const elapsedTime = clock.getElapsedTime();" >> index.html
+echo "            particleMesh.rotation.y = -0.1 * elapsedTime;" >> index.html
+echo "            if(mouseX > 0) {" >> index.html
+echo "                particleMesh.rotation.x = -mouseY * (elapsedTime * 0.00008);" >> index.html
+echo "                particleMesh.rotation.y += -mouseX * (elapsedTime * 0.00008);" >> index.html
+echo "            }" >> index.html
+echo "            renderer.render(scene, camera);" >> index.html
+echo "            requestAnimationFrame(animate);" >> index.html
+echo "        }" >> index.html
+echo "        animate();" >> index.html
+echo "        window.addEventListener('resize', () => {" >> index.html
+echo "            renderer.setSize(window.innerWidth, window.innerHeight);" >> index.html
+echo "            camera.aspect = window.innerWidth / window.innerHeight;" >> index.html
+echo "            camera.updateProjectionMatrix();" >> index.html
+echo "        });" >> index.html
+echo "        async function typeText(element, html) {" >> index.html
+echo "            const tempDiv = document.createElement('div');" >> index.html
+echo "            tempDiv.innerHTML = html;" >> index.html
+echo "            element.innerHTML = '';" >> index.html
+echo "            " >> index.html
+echo "            element.appendChild(tempDiv);" >> index.html
+echo "" >> index.html
+echo "            const textNodes = Array.from(element.querySelectorAll('li, p'));" >> index.html
+echo "            " >> index.html
+echo "            for (const node of textNodes) {" >> index.html
+echo "                const text = node.textContent; " >> index.html
+echo "                node.textContent = '';" >> index.html
+echo "                for (let char of text) {" >> index.html
+echo "                    node.textContent += char;" >> index.html
+echo "                    await new Promise(res => setTimeout(res, 5));" >> index.html
+echo "                }" >> index.html
+echo "            }" >> index.html
+echo "        }" >> index.html
+echo "        " >> index.html
+echo "        async function runApi(mode) {" >> index.html
+echo "            const url = document.getElementById('urlInput').value;" >> index.html
+echo "            const resultsDiv = document.getElementById('results');" >> index.html
+echo "            const buttons = document.querySelectorAll('button');" >> index.html
+echo "            if (!url) { resultsDiv.innerHTML = '<p>ERROR: NO URI PROVIDED</p>'; return; }" >> index.html
+echo "            let endpoint = '';" >> index.html
+echo "            if (mode === 'summarize') endpoint = 'http://127.0.0.1:8000/summarize_url';" >> index.html
+echo "            else endpoint = 'http://127.0.0.1:8000/keywords';" >> index.html
+echo "            resultsDiv.innerHTML = \`<p>Connecting to Core...<span class=\"blinking-cursor\"></span></p>\`;" >> index.html
+echo "            buttons.forEach(b => b.disabled = true);" >> index.html
+echo "            try {" >> index.html
+echo "                const response = await fetch(endpoint, {" >> index.html
+echo "                    method: 'POST'," >> index.html
+echo "                    headers: { 'Content-Type': 'application/json' }," >> index.html
+echo "                    body: JSON.stringify({ url: url })" >> index.html
+echo "                });" >> index.html
+echo "                const data = await response.json();" >> index.html
+echo "                if (!response.ok) { throw new Error(data.detail || 'Data stream analysis failed'); }" >> index.html
+echo "                let html = '';" >> index.html
+echo "                if (mode === 'summarize') {" >> index.html
+echo "                    html = '<h3>[Synthesis Complete]</h3><ul>';" >> index.html
+echo "                    data.bullets.forEach(bullet => { html += \`<li>\${bullet.claim}</li>\`; });" >> index.html
+echo "                    html += '</ul>';" >> index.html
+echo "                } else {" >> index.html
+echo "                    html = \`<h3>[Keyword Nodes Extracted]</h3><p>\${data.keywords.join(' | ')}</p>\`;" >> index.html
+echo "                }" >> index.html
+echo "                await typeText(resultsDiv, html);" >> index.html
+echo "            } catch (error) {" >> index.html
+echo "                resultsDiv.innerHTML = \`<h3>[CONNECTION TERMINATED]</h3><p>\${error.message}.</p>\`;" >> index.html
+echo "            } finally {" >> index.html
+echo "                buttons.forEach(b => b.disabled = false);" >> index.html
+echo "            }" >> index.html
+echo "        }" >> index.html
+echo "    </script>" >> index.html
+echo "</body>" >> index.html
+echo "</html>" >> index.html
+  
